@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ExU5_Eq_2.Controllers
+namespace AstillitaFeliz.Controllers
 {
     public class HomeController : Controller
     {

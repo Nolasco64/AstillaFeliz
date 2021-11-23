@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante lo siguiente
 // conjunto de atributos. Cambie los valores de estos atributos para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("ExU5_Eq_2")]
+[assembly: AssemblyTitle("AstillitaFeliz")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("ExU5_Eq_2")]
-[assembly: AssemblyCopyright("Copyright © HP Inc. 2021")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("AstillitaFeliz")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como ID de typelib si este proyecto se expone a COM
-[assembly: Guid("da723957-30aa-4222-b2af-98f5b32f1011")]
+[assembly: Guid("10b9f1b6-7260-4ab3-ac30-c627c9ee5529")]
 
 // La información de versión de un ensamblado consta de los siguientes cuatro valores:
 //

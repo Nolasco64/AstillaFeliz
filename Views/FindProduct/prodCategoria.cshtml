@@ -1,0 +1,40 @@
+﻿@using CarpinteriaProyecto2.Models;
+@{
+    ViewBag.Title = "prodCategoria";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 style="font-family:'Century Gothic'; color:brown; font-size:3rem">@ViewBag.Catego</h2>
+<hr />
+<div class="container" style="background-color:coral">
+
+    @foreach (Productos productos in ViewBag.Productos)
+    {
+
+        <div class="col-6 col-md-4" style="margin-top:20px; width: 300px; padding:20px">
+
+            <div class="card" style="width: 20rem;">
+                <img src="~/Img/@productos.imagen" class="card-img-top" alt="Portada" style=" height: 150px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title h3">@productos.nombre</h5>
+                    <p class="card-text h5 text-center">
+                        Marca: @productos.marca
+                        <br>
+                        Precio: @productos.precio
+                        <br>
+                    </p>
+                    <a href="@Url.Action( "Details", "Productos" ,new { id= productos.Id_producto})">Detalles</a>
+                    <hr />
+
+
+                    <a class="btn btn-primary" href="@Url.Action( "Agregar", "Carro" ,new { id= productos.Id_producto})">Agregar al carrito</a>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

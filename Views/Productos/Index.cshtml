@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CarpinteriaProyecto2.Models.Productos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="font-family:'Century Gothic'; color:brown; font-size:3rem">Catalogo</h2>
+<hr />
+
+<div class="container" style="background-color:coral">
+    <form>
+        <div class="form-group row">
+
+        </div>
+    </form>
+    @foreach (var item in Model)
+    {
+
+        <div class="col-6 col-md-4" style="margin-top:20px; width: 300px">
+
+            <div class="card" style="width: 20rem;">
+                <img src="~/Img/@Html.DisplayFor(modelItem => item.imagen)" class="card-img-top" alt="Portada" style=" height: 150px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title h3">@Html.DisplayFor(modelItem => item.nombre)</h5>
+                    <p class="card-text h5 text-center">
+                        Marca: @Html.DisplayFor(modelItem => item.marca)
+                        <br>
+                        Precio: @Html.DisplayFor(modelItem => item.precio)
+                        <br>
+                    </p>
+                    <a>  @Html.ActionLink("Detalles", "Details", new { id = item.Id_producto })</a>
+                    <a class="btn btn-primary" href="@Url.Action( "Agregar", "Carro" ,new { id= item.Id_producto})">Agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    }
+    <br>
+
+</div>
+
+
+

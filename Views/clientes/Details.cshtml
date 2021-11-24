@@ -1,0 +1,90 @@
+﻿@model CarpinteriaProyecto2.Models.cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numTarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numTarjeta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tajetaexmes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tajetaexmes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarjetexyear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarjetexyear)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_cliente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

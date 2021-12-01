@@ -1,5 +1,7 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<Actividad3Prueba.Models.Paqueteria>
+
+@{
+    ViewBag.Title = "Index";
 }
 <style>
 
@@ -53,13 +55,11 @@
     }
 
     h2 {
-        font-size: 50px;
         text-align: center;
         color: darkblue;
     }
 
     h4 {
-        font-size: 20px;
         text-align: left;
         color: darkblue;
     }
@@ -91,16 +91,19 @@
     }
 
     h3 {
-        color: darkblue;
-        font-family: 'Franklin Gothic Medium';
+        color: #fff;
+        text-shadow: 2px 2px 1px rgba(0,0,0,0.7);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         margin-top: 0;
-        font-size: 25px;
+        font-size: 50px;
+        font-weight: 500
     }
 
     h5 {
-        font-size: 40px;
-        text-align: center;
-        font-family: 'Times New Roman';
+        text-align: left;
+        font-size: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgba(0,0,0,0.7);
     }
 
     #etnosotros {
@@ -115,12 +118,6 @@
         padding: 30px;
     }
 
-    .box {
-        display: flex;
-        margin-bottom: 20px;
-        margin-top: 5px;
-    }
-
     #nos {
         width: 120px;
         height: 100px;
@@ -130,47 +127,19 @@
         background-color: #e37609;
     }
 
-    .column {
-        float: left;
-        width: 50%;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    .button2 {
-        color: white;
-        background-color: #914c07;
-        padding: 10px 22px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 15px;
-        margin-left: 10px;
-        font-weight: bold;
-    }
-
-    .titulo {
-        margin-bottom: 30px;
-    }
-
     .element {
         display: flex;
         border: solid;
         margin: 15px;
     }
 
-    .inic {
-        width: 50%;
+    .icon {
+        width: 15%;
         margin: 15px;
     }
 
     .mid {
-        width: 25%;
+        width: 85%;
         margin: 15px;
     }
 
@@ -193,35 +162,64 @@
     .list {
         max-height: 500px;
         overflow-y: scroll;
-        margin: 10px;
     }
 </style>
-<div class="jumbotron">
-    <h1>ALMACEN</h1>
-    
-    <p><a href="" class="btn btn-primary btn-lg">Paquetería &raquo;</a></p>
-    <p><a href="" class="btn btn-primary btn-lg">Envios pendientes &raquo;</a></p>
-    <p><a href="" class="btn btn-primary btn-lg">Envios sin fecha de entrega &raquo;</a></p>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<h2>Lista de Paqueterías</h2>
+
+<button>
+    @Html.ActionLink("Agregar Paquetería", "Create")
+</button>
+<table class="table">
+    <!-- <tr>
+        <th>
+             Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+             Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+             Html.DisplayNameFor(model => model.email)
+        </th>
+        <th></th>
+    </tr> -->
+
+@foreach (var item in Model) {
+    <tr>
+        <div class="element" style="margin-top:10px; background-color:coral" >
+            
+            <div class="mid">
+
+
+                Nombre:  @Html.DisplayFor(modelItem => item.nombre)
+
+                <br />
+                Telefono: @Html.DisplayFor(modelItem => item.telefono)
+                <br />
+
+                Email: @Html.DisplayFor(modelItem => item.email)
+                <br />
+            </div>
+            <div class="options">
+                <div class="">
+                    <button class="button3">
+                        @Html.ActionLink("Editar Paqueteria", "Edit", new { id = item.id_paqueteria })
+                    </button>
+                </div>
+                <div class="">
+                    <button class="button3">
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.id_paqueteria })
+                    </button>
+                </div>
+                @Html.ActionLink("Detalles", "Details", new { id = item.id_paqueteria })
+            </div>
+
+
+
+            
+        </div>
+        
+    </tr>
+}
+
+</table>

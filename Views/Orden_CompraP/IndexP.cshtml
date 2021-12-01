@@ -1,5 +1,7 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<Actividad3Prueba.Models.Orden_Compra>
+
+@{
+    ViewBag.Title = "IndexP";
 }
 <style>
 
@@ -196,32 +198,86 @@
         margin: 10px;
     }
 </style>
-<div class="jumbotron">
-    <h1>ALMACEN</h1>
-    
-    <p><a href="" class="btn btn-primary btn-lg">Paquetería &raquo;</a></p>
-    <p><a href="" class="btn btn-primary btn-lg">Envios pendientes &raquo;</a></p>
-    <p><a href="" class="btn btn-primary btn-lg">Envios sin fecha de entrega &raquo;</a></p>
-</div>
+<h2>Envios Pendientes</h2>
+<div class="list">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <table class="table">
+
+        @foreach (var item in Model)
+        {
+            if (item.status_envio == "pendiente")
+            {
+                <tr>
+                    <div class="element" style="margin-top:10px; background-color:coral">
+                        
+                        <div class="inic">
+                            No. Orden: @Html.DisplayFor(modelItem => item.id_orden)
+                            <br />
+                            <br />
+                            Cliente: @Html.DisplayFor(modelItem => item.nombreperona_envio)
+                            <br />
+                            <br />
+                            Dirección: <br />@Html.DisplayFor(modelItem => item.callenum_envio)<br />
+                            @Html.DisplayFor(modelItem => item.ciudad_envio)<br />
+
+                        </div>
+                        <div class="mid">
+                            Status: @Html.DisplayFor(modelItem => item.status_envio)
+                        </div>
+                        <div class="options">
+                            <div class="">
+                                <button class="button3">@Html.ActionLink("Registrar", "EditP", new { id = item.id_orden })</button>
+                                @Html.ActionLink("Detalles", "Details", new { id = item.id_orden })
+                            </div>
+
+                        </div>
+                        <!--
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha_envio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha_entrega)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombreperona_envio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.callenum_envio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ciudad_envio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.codigop_envio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.status_envio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.codigo_rastreo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Clientes.nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Pago.metodo_pago)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Paqueteria.nombre)
+    </td>
+    <td>
+        <button>@Html.ActionLink("Registrar", "EditP", new { id = item.id_orden })</button>
+
+    </td>
+        -->
+                    </div>
+                </tr>
+            }
+
+
+
+
+        }
+
+    </table>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>

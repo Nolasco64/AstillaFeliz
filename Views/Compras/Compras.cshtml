@@ -1,5 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+@{
+    ViewBag.Title = "Compras";
+}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
@@ -143,54 +145,6 @@
             background-color: #e37609;
         }
     </style>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    
 </head>
-<body style="background-color: #f1c232">
+<h2>Compras</h2>
 
-    <div class="container-fluid">
-        <div class="Jumbotron-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <img src='@Url.Content("~/Content/logo.jpg")' alt="mi logo" width="250" height="150">
-                </div>
-                <div class="col-6">
-                    <h1> La Astillita Feliz</h1>
-                    <h4>Artículos de Carpintería</h4>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="container-fluid">
-            <div class="navbar  navbar-custom navbar-expand-sm bg-black navbar-dark" ">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Crear Paqueteria", "CrearPaqueteria", "CrearPaqueteria", new { area = "" }, new { @class = "navbar-brand" })
-                    @Html.ActionLink("Editar Paqueterias", "EditarPaqueterias", "EditarPaqueterias", new { area = "" }, new { @class = "navbar-brand" })
-                    @Html.ActionLink("Editar Ordenes", "Envios", "Envios", new { area = "" }, new { @class = "navbar-brand" })
-                    @Html.ActionLink("Cerrar sesión", "Compras", "Compras", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
-</body>
-</html>

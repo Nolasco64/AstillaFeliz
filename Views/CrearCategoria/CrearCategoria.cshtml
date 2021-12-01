@@ -1,5 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+@{
+    ViewBag.Title = "CrearCategoria";
+}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
@@ -78,6 +80,7 @@
         h4 {
             text-align: left;
             color: darkblue;
+            font-size: 20px;
         }
 
         #car {
@@ -116,10 +119,9 @@
         }
 
         h5 {
-            text-align: left;
-            font-size: 15px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: rgba(0,0,0,0.7);
+            font-size: 40px;
+            text-align: center;
+            font-family: 'Times New Roman';
         }
 
         #etnosotros {
@@ -142,55 +144,71 @@
         .navbar-custom {
             background-color: #e37609;
         }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .titulo {
+            margin-bottom: 30px;
+        }
+
+        .botoniz {
+            margin-left: 700px;
+        }
+
+        .button1 {
+            background-color: #914c07;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .button2 {
+            background-color: #914c07;
+            padding: 10px 22px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
     </style>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    
 </head>
-<body style="background-color: #f1c232">
 
-    <div class="container-fluid">
-        <div class="Jumbotron-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <img src='@Url.Content("~/Content/logo.jpg")' alt="mi logo" width="250" height="150">
-                </div>
-                <div class="col-6">
-                    <h1> La Astillita Feliz</h1>
-                    <h4>Artículos de Carpintería</h4>
-                </div>
-            </div>
+<div class="titulo">
+    <h5>Crear Categoria</h5>
 
-        </div>
+</div>
+<div class="box">
+    <input type="image" src='@Url.Content("~/Content/camara.png")' name="submit" width="100" height="148" alt="submit" />
+</div>
+<div class="box">
 
-        <div class="container-fluid">
-            <div class="navbar  navbar-custom navbar-expand-sm bg-black navbar-dark" ">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Crear Paqueteria", "CrearPaqueteria", "CrearPaqueteria", new { area = "" }, new { @class = "navbar-brand" })
-                    @Html.ActionLink("Editar Paqueterias", "EditarPaqueterias", "EditarPaqueterias", new { area = "" }, new { @class = "navbar-brand" })
-                    @Html.ActionLink("Editar Ordenes", "Envios", "Envios", new { area = "" }, new { @class = "navbar-brand" })
-                    @Html.ActionLink("Cerrar sesión", "Compras", "Compras", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
+    <h2>Seleccionar foto</h2>
+</div>
 
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
+<div class="box">
+    <h2>
+        Nombre:
+        <input type="text">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    </h2>
+</div>
+<div class="box">
+    <h2>
+        Descripcion:
+        <input type="text" style="height:200px;font-size:14pt;">
 
-</body>
-</html>
+    </h2>
+</div>
+<div class="botoniz">
+    <button class="button1" type="button">Crear</button>
+</div>

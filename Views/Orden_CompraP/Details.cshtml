@@ -1,0 +1,103 @@
+﻿@model Actividad3Prueba.Models.Orden_Compra
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Orden de compra @Html.DisplayFor(model => model.id_orden)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Fecha de envio:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_envio)
+        </dd>
+
+        <dt>
+            Fecha de entrega:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_entrega)
+        </dd>
+
+        <dt>
+            Destinatario:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreperona_envio)
+        </dd>
+
+        <dt>
+            Calle y número:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.callenum_envio)
+        </dd>
+
+        <dt>
+            Ciudad:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciudad_envio)
+        </dd>
+
+        <dt>
+            Código Postal:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigop_envio)
+        </dd>
+
+        <dt>
+            Estatus del envio:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_envio)
+        </dd>
+
+        <dt>
+            Código de rastreo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo_rastreo)
+        </dd>
+
+        <dt>
+            Cliente: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.nombre)
+        </dd>
+
+        <dt>
+            Método de pago: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pago.metodo_pago)
+        </dd>
+
+        <dt>
+            Paquetería:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paqueteria.nombre)
+        </dd>
+
+    </dl>
+</div>
+

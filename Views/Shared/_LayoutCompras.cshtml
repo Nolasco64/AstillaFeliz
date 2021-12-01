@@ -18,11 +18,8 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
-    <title>Compras</title>
+    <title>Almacen</title>
     <style>
-
-
-
         * {
             box-sizing: border-box;
         }
@@ -152,7 +149,7 @@
         <div class="Jumbotron-fluid">
             <div class="row">
                 <div class="col-6">
-                    <img src='@Url.Content("~/Content/images/logop.jpg")' alt="mi logo" width="250" height="150">
+                    <img src='@Url.Content("~/Content/img/logo.jpg")' alt="mi logo" width="250" height="150">
                 </div>
                 <div class="col-6">
                     <h1> La Astillita Feliz</h1>
@@ -169,43 +166,36 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        @Html.ActionLink("Inicio", "Index", "Compras", new { area = "" }, new { @class = "navbar-brand" })
+                        
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Categorias<span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>@Html.ActionLink("Agregar", "Create", "Categorias", null, new { id = "add" })</li>
-                                    <li>@Html.ActionLink("Listar", "Index", "Categorias", null, new { id = "list" })</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" role="button" aria-expanded="true" href="#" data-toggle="dropdown">Productos<span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>@Html.ActionLink("Agregar", "Create", "Producto", null, new { id = "add" })</li>
-                                    <li>@Html.ActionLink("Listar", "Index", "Producto", null, new { id = "list" })</li>
-                                </ul>
-                            </li>
+
+                            <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                            <li>@Html.ActionLink("Paqueterias", "Index", "Paqueteria", new { area = "" }, new { @class = "navbar-brand" })</li>
+                            <li>@Html.ActionLink("Envios pendientes", "IndexP", "Orden_CompraP", new { area = "" }, new { @class = "navbar-brand" })</li>
+                            <li>@Html.ActionLink("Envios sin fecha de entrega", "IndexE", "Orden_CompraP", new { area = "" }, new { @class = "navbar-brand" })</li>
+                            <li>@Html.ActionLink("Cerrar sesión", "Compras", "Compras", new { area = "" }, new { @class = "navbar-brand" })</li>
+
                         </ul>
-                         <div class="col-6">
-                          @Html.Partial("_LoginPartial")
-                         </div>
+                        <div class="col-6">
+                            <!-- arroba Html.Partial("_LoginPartial")-->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-            </footer>
-        </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

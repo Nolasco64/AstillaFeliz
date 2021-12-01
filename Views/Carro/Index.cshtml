@@ -1,0 +1,62 @@
+﻿@using AstillitaFeliz.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="font-family:'Century Gothic'; color:brown; font-size:3rem">Carrito</h2>
+<hr />
+<div class="card">
+
+    <table class="table " style="text-align:center">
+
+        <tr class="info">
+
+            <th style="text-align:center">Nombre</th>
+            <th></th>
+            <th style="text-align:center">Precio</th>
+            <th style="text-align:center">Cantidad</th>
+            <th style="text-align:center">Subtotal</th>
+            <th style="width:30px">Remover</th>
+
+        </tr>
+
+
+
+        @foreach (Item item in (List<Item>)Session["cart"])
+        {
+            <tr>
+
+                <td>@item.product.nombre_producto</td>
+                <td><img style="width: 100px" src="~/Img/@item.product.imagen" /></td>
+                <td>@item.product.precio</td>
+                <td>@item.Cantidad</td>
+                <td>@(item.product.precio * item.Cantidad)</td>
+                <td><a class="btn alert-danger" href="@Url.Action("Quitar", "Carro", new { id = item.product.id_producto})"> Quitar </a></td>
+            </tr>
+        }
+
+        <tr>
+            <td align="right" colspan="4">Total: $</td>
+            <td>
+                @{
+                    List<Item> cart = (List<Item>)Session["cart"];
+                    var total = cart.Sum(item => item.product.precio * item.Cantidad);
+                }
+                @total
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+<br />
+<a class="btn btn-warning" href="@Url.Action("Index", "Home")">Continuar </a>
+<p style="float:right">
+    @Html.ActionLink("Confirmar orden", "CrearOrden", "Pago", new { area = "" }, new { @class = "btn btn-success" })
+
+</p>
+
+
+

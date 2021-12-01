@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        string name = "";
+        try
+        {
+            name = @Session["name"].ToString();
+        }
+        catch (Exception e)
+        {
+
+        }
+
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @*Html.ActionLink("Hola " + name + "", "Index", "Clientes", routeValues: null, htmlAttributes: new { title = "Manage", @class = "navbar-brand" })*@
+        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Hola @name</a>
+        <ul class="dropdown-menu" role="menu">
+    <li> @Html.ActionLink("Mis pedidos", "Index", "Pedidos",null,new { id = "Add"})
+
+        @Html.ActionLink("Mis Datos", "Index", "Clientes", null, new { id = "Add" })
+    
+        @Html.ActionLink("Comentarios", "MisComentarios", "Comentarios", null, new { id = "Add" })
+    </li>
+        </ul>
+    </li>
+    <li><a class="navbar-brand" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+</ul>
+    }
+}
+else
+{
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "navbar-brand" })</li>
+            <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "navbar-brand" })</li>
+        </ul>
+}

@@ -1,0 +1,117 @@
+﻿@using AstillitaFeliz.Models
+@{
+    ViewBag.Title = "CrearOrden";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string c = Session["usr"].ToString();
+    string d = Session["dirCliente"].ToString();
+    string fO = Session["fechaOrden"].ToString();
+    string fE = Session["fPEntreg"].ToString();
+    int tTarj = Convert.ToInt32(Session["rTarj"].ToString());
+    string fig = "";
+    string nTarj = Session["nTarj"].ToString();
+
+    switch (tTarj)
+    {
+        case 1:
+            fig = "visa.png";
+            break;
+        case 2:
+            fig = "masterd.png";
+            break;
+        case 3:
+            fig = "american.png";
+            break;
+    }
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        a {
+            font-size: 20px;
+        }
+    </style>
+    </head>
+    <h2>Su orden ha sido Completada!</h2>
+
+    <div class="container" style="background-color:coral">
+        <div>
+            <h4 class="bg-info"> Cliente: @c</h4>
+            <h4 class="bg-info"> Dir Entrega: @d</h4>
+            <h4 class="bg-info"> Fecha de orden: @fO</h4>
+            <h4 class="bg-info"> Fecha de Entrega: @fE</h4>
+            <div class="col-md-8 bg-success">
+                <table class="table table-bordered table-responsive table-striped">
+                    <thead>
+                        <tr class="info">
+                            <th>Foto</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>SubTotal</th>
+                        </tr>
+                    </thead>
+                    @foreach (Item item in (List<Item>)Session["cart"])
+                    {
+                        <tr>
+                            <td>
+                                <img class="img-responsive" src="~/Img/@item.product.imagen" width="80"
+                                     height="80" />
+                            </td>
+                            <td>@item.product.nombre_producto</td>
+                            <td>@item.product.precio</td>
+                            <td>@item.Cantidad</td>
+                            <td>@(item.product.precio * item.Cantidad)</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td aling="rigth" colspan="6">Total</td>
+                        <td>
+                            @{
+                                List<Item> cart = (List<Item>)Session["cart"];
+                                var total = cart.Sum(item => item.product.precio * item.Cantidad);
+                            }
+                            @total
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <p>Elija su forma de pago haciendo click sobre la imagen de su eleccion</p>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-2">
+                    <a href="@Url.Action("Pagar", "Pago", new { tipoPago = "T" })" style="text-decoration:none">
+                        <img src="~/Img/visa-logo.jpg" class="img-responisve img-rounded" width="40"
+                             height="40" />
+                        @nTarj
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("Pagar", "Pago", new { tipoPago = "P" })" style="text-decoration:none">
+                        <img src="~/Img/logo-Paypal.png" class="img-responisve img-rounded" width="40"
+                             height="40" />
+                        Paypal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

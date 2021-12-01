@@ -1,0 +1,61 @@
+﻿@model AstillitaFeliz.Models.Producto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="font-family:'Century Gothic'; color:brown; font-size:3rem">@Html.DisplayFor(model => model.nombre_producto)</h2>
+<hr />
+<div style="background-color:coral; align-items:center">
+
+
+    <img src="~/Img/@Html.DisplayFor(model => model.imagen)" class="card-img-top" alt="Portada" style=" width:auto; height: 150px; margin:20px; align-self:center">
+
+    <dl class="dl-horizontal">
+
+        <dt>
+            Precio:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            Descripcion:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            Marca:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marca)
+        </dd>
+
+        <dt>
+            Categoria:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.nombre_categoria)
+        </dd>
+
+    </dl>
+    <a class="btn btn-primary" style="margin:20px" href="@Url.Action("Agregar", "Carro", new { id = Model.id_producto})">Agregar al carrito</a>
+   
+    <a class="btn btn-info text-center" style="text-decoration:none" href=@Url.Action("Index","Comentarios")>Ver comentarios</a>
+
+</div>
+<p>
+
+    @Html.ActionLink("Volver al Catalogo", "Index", "", new { @class = "volver" })
+</p>
+
+
+

@@ -1,0 +1,58 @@
+﻿@using AstillitaFeliz.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Historial de Pedidos</h2>
+
+<div class="container" style="background-color:coral">
+    <table class="table table-bordered table-responsive table-striped">
+        @{ if (Session["misPedidos"] != null)
+            {
+                foreach (PedidoCliente pedido in (List<PedidoCliente>)Session["misPedidos"])
+                {
+                    int idOrd = pedido.Orden.id_orden;
+                    <tr>
+                        <td>Fecha: @pedido.fecha</td>
+                        <td>Envio: @pedido.envio</td>
+                        <td>Entrega: @pedido.status</td>
+                    </tr>
+                    <tr>
+                        <td>Nombre</td>
+                        <td>Imagen</td>
+                        <td>Precio</td>
+                        <td>Cantidad</td>
+                        <td>Subtotal</td>
+
+                    </tr>
+                    foreach (ItemPedido item in (List<ItemPedido>)Session["Pedido"])
+                    {
+                        if (item.idOrd == idOrd)
+                        {
+                            <tr>
+                                <td>@item.Product.nombre_producto</td>
+                                <td>
+                                    <img class="img-responsive" src="~/Img/@item.Product.imagen" width="100"
+                                         height="100" />
+                                </td>
+                                <td>@item.Product.precio</td>
+                                <td>@item.Cantidad</td>
+                                <td>@(item.Product.precio * item.Cantidad)</td>
+                            </tr>
+                        }
+                    }
+                    <tr>
+                        <td align="right" colspan="4">Total</td>
+                        <td>@pedido.Total</td>
+                    </tr>
+
+                }
+            }
+
+        }
+    </table>
+    <br>
+</div>
+    <a class="btn btn-warning" href="@Url.Action("Index", "Home")">Ir a Tienda</a>
+

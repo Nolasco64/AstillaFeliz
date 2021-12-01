@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AstillitaFeliz.Models.Comentario>
+@{
+    ViewBag.Title = "MisComentarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MisComentarios</h2>
+
+
+<div class="container" style="background-color:coral">
+ 
+    <table class="table">
+        <tr>
+            <th>
+                Comentario:
+            </th>
+           
+            <th>
+                Producto:
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contenido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto.nombre_producto)
+                </td>
+                <td>
+                    <a class="btn btn-info text-center" style="text-decoration:none" @Html.ActionLink("Modificar", "Edit", new { id = item.id_comentario })></a>
+                    <a class="btn btn-info text-center" style="text-decoration:none" @Html.ActionLink("Eliminar", "Delete", new { id = item.id_comentario })></a>
+
+                 
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

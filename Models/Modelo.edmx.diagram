@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2400d19e77154dae86952dea968e27cf" Name="Diagram1">
+        <EntityTypeShape EntityType="AstillitaModel.Categoria" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AstillitaModel.Clientes" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AstillitaModel.Detalles_Compras" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AstillitaModel.Empleados" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AstillitaModel.Orden_Compra" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AstillitaModel.Pago" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AstillitaModel.Paqueteria" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AstillitaModel.Producto" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="AstillitaModel.FK__Producto__id_cat__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="AstillitaModel.FK__Orden_Com__id_cl__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="AstillitaModel.FK__Detalles___id_or__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="AstillitaModel.FK__Detalles___id_pr__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="AstillitaModel.FK__Orden_Com__id_pa__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="AstillitaModel.FK__Orden_Com__id_pa__34C8D9D1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
